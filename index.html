@@ -325,20 +325,22 @@
         </footer>
     </div>
 
-    <script>
-        const soundBtn = document.getElementById('sound-toggle');
-        const audio = document.getElementById('bg-audio');
+   <script>
+    const soundBtn = document.getElementById('sound-toggle');
+    // Wir holen uns das Video-Element, nicht ein Audio-Element
+    const video = document.getElementById('bg-video');
 
-        function toggleSound() {
-            if (audio.paused) {
-                audio.play();
-                soundBtn.innerHTML = "Sound: On";
-            } else {
-                audio.pause();
-                soundBtn.innerHTML = "Sound: Off";
-            }
+    function toggleSound() {
+        // Wir prüfen, ob das Video stummgeschaltet ist
+        if (video.muted) {
+            video.muted = false; // Ton AN (Unmute)
+            soundBtn.innerHTML = "Sound: On";
+        } else {
+            video.muted = true; // Ton AUS (Mute)
+            soundBtn.innerHTML = "Sound: Off";
         }
-    </script>
+    }
+</script>
 
 </body>
 </html>
